@@ -1,11 +1,9 @@
-import React, {useRef, useState} from "react";
-import Filter, {Modal} from "./Filter";
+import React, {useState} from "react";
+import Filter, {Modal} from "../common/Filter";
 import {CSSTransition} from "react-transition-group";
 import InputRange from "react-input-range";
 
 function RangeFilter(props) {
-
-    console.log(props);
 
     const [defaultValue, setDefaultValue] = useState({min : '', max: ''});
     const [inputValue, setInputValue] = useState({min : '', max: ''});
@@ -29,9 +27,7 @@ function RangeFilter(props) {
             if (value.max > props.item.max) maxValue = props.item.max;
             if (value.max < value.min) maxValue = value.min;
         }
-        console.log(type);
-        console.log(props.item.max);
-        console.log(maxValue);
+
         return {min : minValue, max:maxValue};
     }
 

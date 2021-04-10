@@ -1,6 +1,6 @@
 import './App.scss';
 import React from "react";
-import Group from "./Group";
+import Group from "./components/Group";
 class App extends React.Component {
 
     constructor(props) {
@@ -155,6 +155,24 @@ class App extends React.Component {
                                 'title' : 'Цена со скидкой'
                             }
                         ],
+                    },
+                    {
+                        'name': 'width',
+                        'title': 'Ширина',
+                        'type': 'range',
+                        'max' : 500,
+                        'min' : 10,
+                        'options': [
+                        ],
+                    },
+                    {
+                        'name': 'height',
+                        'title': 'Высота',
+                        'type': 'range',
+                        'max' : 500,
+                        'min' : 10,
+                        'options': [
+                        ],
                     }
                 ]
 
@@ -177,6 +195,9 @@ class App extends React.Component {
                 </div>
                 <div className="search__bottom">
                     {Groups}
+                </div>
+                <div className="search__extra-height">
+
                 </div>
             </div>
         </div>

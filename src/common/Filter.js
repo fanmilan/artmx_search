@@ -1,7 +1,5 @@
 import React, {useRef, useState} from "react";
-import {CSSTransition} from "react-transition-group";
 import ReactDOM from "react-dom";
-import SelectFilter from "./SelectFilter";
 
 
 
@@ -61,23 +59,13 @@ export class Modal extends React.Component {
 
 
     componentDidMount() {
-        // Элемент портала добавляется в DOM-дерево после того, как
-        // потомки компонента Modal будут смонтированы, это значит,
-        // что потомки будут монтироваться на неприсоединённом DOM-узле.
-        // Если дочерний компонент должен быть присоединён к DOM-дереву
-        // сразу при подключении, например, для замеров DOM-узла,
-        // или вызова в потомке 'autoFocus', добавьте в компонент Modal
-        // состояние и рендерите потомков только тогда, когда
-        // компонент Modal уже вставлен в DOM-дерево.
-        // modalRoot.appendChild(this.el);
         document.addEventListener("mousedown", this.handleClick);
-        //this.props.searchRef.current.addEventListener('scroll', this.props.scrollHandler);
+        this.props.searchRef.current.addEventListener('scroll', this.props.scrollHandler);
     }
 
     componentWillUnmount() {
-        // modalRoot.removeChild(this.el);
         document.removeEventListener("mousedown", this.handleClick);
-        //this.props.searchRef.current.removeEventListener('scroll', this.props.scrollHandler);
+        this.props.searchRef.current.removeEventListener('scroll', this.props.scrollHandler);
     }
 
 
@@ -108,7 +96,7 @@ export class Modal extends React.Component {
         * */
         const FIXED_OPTIONS_HEIGHT = 80;
         const SELECT_ITEM_HEIGHT = 40;
-        const MIN_OFFSET = 10;
+        const MIN_OFFSET = 0;
         const browserHeight = document.documentElement.clientHeight;
         let heightOfSelectBody = ((this.props.options.length > 0) ? SELECT_ITEM_HEIGHT * this.props.options.length : SELECT_ITEM_HEIGHT) + FIXED_OPTIONS_HEIGHT;
         const MAX_OFFSET = browserHeight - heightOfSelectBody - MIN_OFFSET;

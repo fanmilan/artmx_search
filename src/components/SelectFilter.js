@@ -1,6 +1,5 @@
-import React, {useRef, useState} from "react";
-import ReactDOM from "react-dom";
-import Filter, {Modal} from "./Filter";
+import React, {useState} from "react";
+import Filter, {Modal} from "../common/Filter";
 import {CSSTransition} from "react-transition-group";
 
 function SelectFilter(props) {
